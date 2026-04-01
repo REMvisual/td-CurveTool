@@ -1,4 +1,4 @@
-# td-CurveEditor
+# td-CurveTool
 
 **Interactive Curve Editor + LFO for TouchDesigner 2025.x**
 
@@ -10,7 +10,7 @@
 
 ## Why This Exists
 
-Drawing custom envelopes and waveform shapes in TouchDesigner means wrestling with keyframes, Animation COMPs, or external tools. td-CurveEditor gives you a self-contained curve editor that lives inside any COMP. You draw the shape you want, and the output feeds directly into a Lookup CHOP driven by any timing source -- LFO, beat, timeline, or external signal.
+Drawing custom envelopes and waveform shapes in TouchDesigner means wrestling with keyframes, Animation COMPs, or external tools. td-CurveTool gives you a self-contained curve editor that lives inside any COMP. You draw the shape you want, and the output feeds directly into a Lookup CHOP driven by any timing source -- LFO, beat, timeline, or external signal.
 
 ## Features
 

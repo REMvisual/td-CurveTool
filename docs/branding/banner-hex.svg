@@ -415,14 +415,14 @@
   <line x1="210" y1="160" x2="265" y2="64.7" stroke="#4DD9FF" stroke-width="0.6" opacity="0.12"/>
 
   <!-- ============================================ -->
-  <!-- WORDMARK: td-CurveEditor                     -->
+  <!-- WORDMARK: td-CurveTool                     -->
   <!-- ============================================ -->
 
-  <!-- Title: "td-CurveEditor" — cyan "td" + white rest, single element for perfect kerning -->
+  <!-- Title: "td-CurveTool" — cyan "td" + white rest, single element for perfect kerning -->
   <text x="500" y="148"
         font-family="'Segoe UI', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
         font-size="80" font-weight="700" letter-spacing="2"
-        filter="url(#textShadow)"><tspan fill="#4DD9FF">td</tspan><tspan fill="#FFFFFF">-CurveEditor</tspan></text>
+        filter="url(#textShadow)"><tspan fill="#4DD9FF">td</tspan><tspan fill="#FFFFFF">-CurveTool</tspan></text>
 
   <!-- Subtitle line 1 -->
   <text x="502" y="192"
