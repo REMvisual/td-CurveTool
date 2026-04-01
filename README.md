@@ -1,22 +1,21 @@
 # td-CurveEditor
 
-**Interactive GLSL Curve Editor + LFO for TouchDesigner 2025.x**
+**Interactive Curve Editor + LFO for TouchDesigner 2025.x**
 
 [![Version](https://img.shields.io/badge/version-v1.1-blue.svg)]()
 [![TouchDesigner](https://img.shields.io/badge/TouchDesigner-2025.x-orange.svg)]()
-[![GLSL](https://img.shields.io/badge/GLSL-4.60-green.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Why This Exists
 
-Drawing custom envelopes and waveform shapes in TouchDesigner means wrestling with keyframes, Animation COMPs, or external tools. td-CurveEditor gives you a self-contained, GLSL-rendered curve editor that lives inside any COMP. You draw the shape you want, and the output feeds directly into a Lookup CHOP driven by any timing source -- LFO, beat, timeline, or external signal.
+Drawing custom envelopes and waveform shapes in TouchDesigner means wrestling with keyframes, Animation COMPs, or external tools. td-CurveEditor gives you a self-contained curve editor that lives inside any COMP. You draw the shape you want, and the output feeds directly into a Lookup CHOP driven by any timing source -- LFO, beat, timeline, or external signal.
 
 ## Features
 
-- **GLSL-rendered UI** -- the entire interface (curve, grid, toolbar, dropdown, 7-segment display) is drawn in a single fragment shader. No TOPs stacked, no UI widgets.
+- **Single-pass rendered UI** -- the entire interface (curve, grid, toolbar, dropdown, 7-segment display) is drawn in one shader. No TOPs stacked, no UI widgets.
 - **Per-point bezier/linear toggle** -- click any control point to switch between smooth spline and linear interpolation
 - **12 built-in presets** -- linear, sine, triangle, sawtooth, sawtooth reverse, square, ease in/out, exponential attack/decay, S-curve
-- **Dropdown preset picker** -- GLSL-rendered dropdown with hover highlighting and bitmap font labels
+- **Dropdown preset picker** -- rendered dropdown with hover highlighting and bitmap font labels
 - **Save and reset** -- save the current curve as a user preset, reset to default
 - **LFO time controls** -- speed slider (logarithmic 0.01--20 Hz), BPM sync mode (30--300 BPM)
 - **RAMP / PING mode** -- toggle between one-shot ramp and ping-pong bounce
@@ -62,11 +61,10 @@ The `curve_output` Script CHOP outputs your curve shape (default 256 samples). C
 ## Requirements
 
 - **TouchDesigner 2025.x** (tested with 2025.20000+)
-- GLSL 4.60 / Vulkan backend (default in TD 2025.x)
 
 ## Version
 
-**v1.1** -- GLSL toolbar, dropdown preset picker, 7-segment display, LFO time controls, RAMP/PING mode toggle, hex logo watermark.
+**v1.1** -- Toolbar, dropdown preset picker, 7-segment display, LFO time controls, RAMP/PING mode toggle.
 
 ## License
 
