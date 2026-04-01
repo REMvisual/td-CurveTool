@@ -1,1 +1,8 @@
-docs/
+# OS
+.DS_Store
+Thumbs.db
+
+# Dev tooling
+.beads/
+.claude/
+ov.conf
