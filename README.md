@@ -2,6 +2,8 @@
 
 **Interactive Curve Editor + LFO for TouchDesigner 2025.x**
 
+![Banner](docs/branding/banner-hex.svg)
+
 [![Version](https://img.shields.io/badge/version-v1.1-blue.svg)]()
 [![TouchDesigner](https://img.shields.io/badge/TouchDesigner-2025.x-orange.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -12,6 +14,7 @@ Drawing custom envelopes and waveform shapes in TouchDesigner means wrestling wi
 
 ## Features
 
+- **Custom curve CHOP output** -- your drawn curve is output as a Script CHOP (default 256 samples), ready to wire into a Lookup CHOP driven by any timing source
 - **Single-pass rendered UI** -- the entire interface (curve, grid, toolbar, dropdown, 7-segment display) is drawn in one shader. No TOPs stacked, no UI widgets.
 - **Per-point bezier/linear toggle** -- click any control point to switch between smooth spline and linear interpolation
 - **12 built-in presets** -- linear, sine, triangle, sawtooth, sawtooth reverse, square, ease in/out, exponential attack/decay, S-curve
