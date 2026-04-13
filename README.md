@@ -1,6 +1,6 @@
 # CurveTool v1.1
 
-![Banner](https://github.com/REMvisual/td-CurveTool/releases/download/v1.1/banner.png)
+![Banner]()
 
 [![Download Latest](https://img.shields.io/github/v/release/REMvisual/td-CurveTool?style=for-the-badge&label=Download&color=blue)](https://github.com/REMvisual/td-CurveTool/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/REMvisual/td-CurveTool/total?style=for-the-badge)](https://github.com/REMvisual/td-CurveTool/releases)
@@ -8,7 +8,7 @@
 
 Interactive curve editor + LFO for TouchDesigner. Draw custom envelopes and waveform shapes, output as a CHOP driven by any timing source — LFO, beat, timeline, or external signal.
 
-![Presets](https://github.com/REMvisual/td-CurveTool/releases/download/v1.1/presets-grid.png)
+![Presets]()
 
 ## Features
 
