@@ -1,44 +1,49 @@
-# CurveTool v1.1
-
-![Banner]()
+<p align="center">
+  <img src="https://github.com/REMvisual/td-CurveTool/releases/download/v2.0/banner.svg" alt="CurveTool Free v2.0" width="100%">
+</p>
 
 [![Download Latest](https://img.shields.io/github/v/release/REMvisual/td-CurveTool?style=for-the-badge&label=Download&color=blue)](https://github.com/REMvisual/td-CurveTool/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/REMvisual/td-CurveTool/total?style=for-the-badge)](https://github.com/REMvisual/td-CurveTool/releases)
 ![Views](https://komarev.com/ghpvc/?username=REMvisual-td-CurveTool&label=Views&color=brightgreen&style=for-the-badge)
+[![Upgrade to Pro](https://img.shields.io/badge/Upgrade-CurveTool%20Pro-ff7733?style=for-the-badge)](https://remrepo.com/buy/curvetool/)
 
-Interactive curve editor + LFO for TouchDesigner. Draw custom envelopes and waveform shapes, output as a CHOP driven by any timing source — LFO, beat, timeline, or external signal.
+Interactive curve editor + LFO for TouchDesigner 2025.x. Draw custom envelopes and waveform shapes on an HTML Canvas UI, output as a CHOP driven by any timing source — LFO, beat, timeline, or external signal.
 
-![Presets]()
+## What It Does
 
-## Features
+Forget Animation COMPs and keyframe editors. Drop the `.tox` into any project, draw the shape you want with bezier or linear control points, and the curve flows out as a CHOP ready to drive anything — envelopes, audio-reactive visuals, parameter automation, animated camera pulls.
 
-- **Custom curve CHOP output** -- your drawn curve is output as a Script CHOP (default 256 samples), ready to wire into a Lookup CHOP driven by any timing source
-- **Single-pass rendered UI** -- the entire interface (curve, grid, toolbar, dropdown, 7-segment display) is drawn in one shader. No TOPs stacked, no UI widgets.
-- **Per-point bezier/linear toggle** -- click any control point to switch between smooth spline and linear interpolation
-- **12 built-in presets** -- linear, sine, triangle, sawtooth, sawtooth reverse, square, ease in/out, exponential attack/decay, S-curve
-- **Dropdown preset picker** -- rendered dropdown with hover highlighting and bitmap font labels
-- **Save and reset** -- save the current curve as a user preset, reset to default
-- **LFO time controls** -- speed slider (logarithmic 0.01--20 Hz), BPM sync mode (30--300 BPM)
-- **RAMP / PING mode** -- toggle between one-shot ramp and ping-pong bounce
-- **7-segment value display** -- real-time numeric readout rendered in the shader
-- **Replicable .tox** -- drop copies into any project; each instance is fully isolated
+- **HTML Canvas UI** inside TouchDesigner via WebRender TOP — full-res, system-fonted
+- **Custom curve CHOP output** — 256-sample Script CHOP ready to wire into a Lookup CHOP
+- **Per-point bezier / linear toggle** — click a control point to switch interpolation
+- **13 built-in presets** — linear, sine, triangle, sawtooth, sawtooth reverse, square, ease in/out/in-out, exp attack/decay, S-curve, noise (random)
+- **Save and recall** — save the current curve with a generated name, recall any saved preset
+- **Speed slider** — leftmost position freezes the LFO (speed 0); logarithmic 0.01–20 Hz; BPM-sync mode (30–300 BPM)
+- **Forward playback** — ramp 0→1 continuously
+- **State persists** across re-init and `.toe` save/load
+- **Replicable `.tox`** — drop copies into any project; each instance is fully isolated
 
 ## Install
 
 **Requires TouchDesigner 2025+**
 
-1. **[Download the .tox](https://github.com/REMvisual/td-CurveTool/releases/latest)** from Releases
-2. Drag into your TouchDesigner project
-3. Wire the CHOP output to a Lookup CHOP
+1. **[Download `CURVETOOL_FREE_v2.tox`](https://github.com/REMvisual/td-CurveTool/releases/latest)** from Releases
+2. Drag it into your TouchDesigner project
+3. The component self-initialises on load — nothing else to set up
 
-### Wire the Output
+## Wire the Output
 
-The `curve_output` Script CHOP outputs your curve shape (default 256 samples). Connect it to a **Lookup CHOP**:
+The component exposes two Out CHOPs:
 
-1. Create a **Lookup CHOP**
-2. Wire **Input 0** to any 0-to-1 source (LFO CHOP, Beat CHOP, Timeline, etc.)
-3. Wire **Input 1** to `curve_output`
-4. The Lookup CHOP outputs your source shaped by the curve
+| Out | Content |
+|---|---|
+| `out1` | raw curve samples (from `curve_output`) |
+| `out2` | LFO-modulated output — the curve sampled at the internal LFO's phase every frame |
+
+Typical patterns:
+
+- **Built-in LFO** — read `out2` and you're done.
+- **Drive it yourself** — ignore the LFO, read `out1`, feed it into your own Lookup CHOP with your own timing source.
 
 ## Interaction
 
@@ -46,21 +51,24 @@ The `curve_output` Script CHOP outputs your curve shape (default 256 samples). C
 |---|---|
 | **Double-click** empty area | Add a control point |
 | **Click** a point (no drag) | Toggle bezier / linear for that segment |
-| **Drag** a point | Move it (endpoints locked to x=0 and x=1) |
+| **Drag** a point | Move it (endpoints are x-locked) |
 | **Right-click** a point | Delete it (minimum 2 points enforced) |
 
-### Toolbar
+## Upgrade to Pro
 
-| Control | Description |
-|---|---|
-| **Preset dropdown** | Select from 12 built-ins + saved user presets |
-| **SAVE** | Save current curve as a user preset |
-| **RST** | Reset to default linear ramp |
-| **SYNC** | Toggle between free-running Hz and BPM sync |
-| **Speed slider** | Drag to set LFO speed (logarithmic scale) |
-| **Eye toggle** | Show/hide LFO overlay (green scanline + tracking dot) |
-| **RAMP / PING** | Toggle between ramp and ping-pong bounce mode |
+**[CurveTool Pro →](https://remrepo.com/buy/curvetool/)**
 
-## License
+| | Free | Pro |
+|---|:---:|:---:|
+| Curve layers | 1 | 4 |
+| Built-in presets | 13 | 13 + multi-layer |
+| Save / recall presets | ✓ | ✓ |
+| LFO playback modes | Forward | Forward, Reverse, Ping-Pong, One-Shot, Step, Random, Drunk |
+| Morph between presets | — | ✓ (6 easing curves, loopable) |
+| Transform panel | — | Quantize, Ease, Punch, Noise, Mirror, Flip-Y |
+| Audio-reactive modulation | — | Envelope, Spectral, Beat |
+| State persistence | ✓ | ✓ |
 
-MIT — Copyright 2026 REMvisual
+## Licence
+
+MIT — see [LICENSE](LICENSE).
